@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Lomba Futsal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('bagroundfutsal.jpg') no-repeat center center fixed; /* Add your background image */
+            background-size: cover; /* Cover the entire viewport */
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+        }
+        .container {
+            position: relative; /* Relative position for the overlay */
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1; /* Ensure the container is above the overlay */
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input[type="text"], input[type="email"], input[type="number"], input[type="submit"], select {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus {
+            border-color: #031acc;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #0072ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100px;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+        }
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+            input[type="text"], input[type="email"], input[type="number"], input[type="submit"], select {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div> <!-- Overlay for darkening the background -->
+<div class="container">
+    <img src="logofutsal.png" alt="Logo" class="logo">
+    <h2>Pendaftaran Lomba Futsal</h2>
+    <form action="proses_pendaftaran.php" method="POST">
+        <input type="text" name="nama_tim" placeholder="Nama Tim" required>
+        <input type="text" name="kapten" placeholder="Nama Kapten" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="number" name="jumlah_pemain" placeholder="Jumlah Pemain (5-10)" min="5" max="10" required>
+        <select name="kategori" required>
+            <option value="" disabled selected>Pilih Kategori</option>
+            <option value="SD">SD</option>
+            <option value="SMP">SMP</option>
+            <option value="SMA/SMK">SMA/SMK</option>
+            <option value="Umum">Umum</option>
+        </select>
+        <input type="submit" value="Daftar">
+    </form>
+</div>
+
+</body>
+</html>
